@@ -1,7 +1,5 @@
 import pytest
 from pytest import approx
-
-# Припускаємо, що ви перейменували ваш файл на 'order_manager.py'
 from moneyclean.service_body_test import Order
 
 # --- Фікстури для перевикористання тестових даних ---
@@ -140,4 +138,5 @@ def test_repr_simple(simple_order):
 
 def test_repr_empty(empty_order):
     """Перевіряє рядок представлення для порожнього замовлення."""
+
     assert repr(empty_order) == "<Order 100: 0 items>"
