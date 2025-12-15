@@ -1,0 +1,9 @@
+ID,Date,Type,Severity,Description
+FI-201,2024-01-15,Security,High,Unauthorized access attempt detected on port 22
+FI-202,2024-01-16,Network,Medium,Packet loss observed on main gateway router
+FI-203,2024-01-18,Hardware,Critical,Disk failure in RAID array (Server-04)
+FI-204,2024-01-20,Software,Low,Minor UI glitch in admin dashboard
+FI-205,2024-01-22,Access,High,Спроба входу під заблокованим акаунтом
+FI-206,2024-01-25,Database,Critical,SQL Injection attempt blocked by firewall
+FI-207,2024-01-26,Network,Low,Wi-Fi signal degradation in Zone B
+FI-208,2024-01-28,Security,Medium,Phishing email reported by HR department
