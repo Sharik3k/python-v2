@@ -11,7 +11,7 @@ class Logic:
         try:
             with open(filename, 'r', encoding='utf-8') as f:
                 reader = csv.reader(f)
-                next(reader)  # скіп заголовок
+                next(reader)  # Пропускаємо шапку 
                 # Зберігаємо всі рядки у список
                 self.data = [row for row in reader if row]
             return True
@@ -26,15 +26,15 @@ class App:
         self.root.title("Farma Inc. - Incident Review")
         self.root.geometry("700x450")
 
-        # 1. Кнопка
+        #  Кнопка
         btn = tk.Button(root, text=" Завантажити CSV", command=self.open_file, bg="#ddd", font=("Arial", 10))
         btn.pack(pady=10)
 
-        # 2. Таблиця 
+        # Таблиця 
         columns = ("ID", "Date", "Type", "Severity", "Description")
         self.tree = ttk.Treeview(root, columns=columns, show="headings")
 
-        # Налаштування колонок
+        # налаштування колонок
         for col in columns:
             self.tree.heading(col, text=col)
             self.tree.column(col, width=100 if col != "Description" else 300)
@@ -42,7 +42,7 @@ class App:
         self.tree.pack(expand=True, fill='both', padx=10, pady=(0, 10))
 
     def open_file(self):
-      
+        # вибір файла
         filename = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
         
         if filename:
@@ -52,10 +52,11 @@ class App:
                 messagebox.showerror("Помилка", "Не вдалося відкрити файл!")
 
     def show_data(self):
-          for row in self.tree.get_children():
+        # очищення таблиці
+        for row in self.tree.get_children():
             self.tree.delete(row)
 
-       
+        # нові дані
         for row in self.logic.data:
             self.tree.insert("", tk.END, values=row)
 
@@ -63,3 +64,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = App(root)
     root.mainloop()
+
+    
